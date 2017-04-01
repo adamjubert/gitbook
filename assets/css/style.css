@@ -110,13 +110,36 @@ ol, ul {
   margin: 0px 10px;
 }
 
-.issues-buttons {
-  display: flex;
-  justify-content: flex-end;
-
-}
 
 
 .issue-index ul {
   flex-direction: column-reverse;
+}
+
+.issue-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-add-issue {
+  max-width: 100px;
+}
+
+.issue-show {
+  margin: 20px;
+}
+
+.issue-text a {
+  color: blue;
+  font-size: 0.8em;
+}
+
+.issue-text a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.issue-title {
+  color: blue;
+  font-weight: bold;
 }

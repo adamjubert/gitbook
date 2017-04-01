@@ -4,31 +4,70 @@ import IssueIndex from '../issue_index/issue_index';
 class RepoIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clicked: false };
-    this.showIssues = this.showIssues.bind(this);
-    this.handleViewIssues = this.handleViewIssues.bind(this);
+    this.state = { clicked: false, body: '', title: '' };
+    this.addIssueToRepo = this.addIssueToRepo.bind(this);
+    this.issueForm = this.issueForm.bind(this);
+    this.clearForm = this.clearForm.bind(this);
   }
 
   componentDidMount() {
     const username = this.props.username;
     const repo = this.props.repo.name;
-    this.props.fetchIssues(username, repo).then(() => this.addIssuesToRepo());
+    this.props.fetchIssues(username, repo);
   }
 
-  handleViewIssues(e) {
-    this.state.clicked ?
-      this.setState({ clicked: false }) :
-      this.showIssues(e);
+  addIssueToRepo() {
+    let issue = {
+      "title": this.state.title,
+      "body": this.state.body,
+      "repo": this.props.repo.name,
+      "username": this.props.username
+    };
+    this.props.createIssue(issue).then( this.clearForm );
   }
 
-  showIssues(e) {
-    const username = this.props.username;
-    const repo = e.target.id;
-    this.props.fetchIssues(username, repo).then(() => this.addIssuesToRepo());
+  clearForm() {
+    this.setState({ body: '', title: '' });
   }
 
-  addIssuesToRepo() {
 
+  issueForm() {
+    return (
+      <form onSubmit={ this.addIssueToRepo } className='issue-form'>
+        { this.issueTitle() }
+        { this.issueBody() }
+        <input type="submit" value="Add Issue" className='btn-add-issue' />
+      </form>
+    );
+  }
+
+  issueBody() {
+    return (
+      <label>
+        <textarea
+          value={this.state.body}
+          onChange={this.update('body')}>
+        </textarea>
+      </label>
+    );
+  }
+
+  issueTitle() {
+    return (
+      <label>
+        <input
+          type="text"
+          value={this.state.title}
+          onChange={this.update('title')}>
+        </input>
+      </label>
+    );
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({[field]: e.target.value});
+    };
   }
 
   render() {
@@ -49,11 +88,10 @@ class RepoIndexItem extends React.Component {
           <li>{ repo.open_issues_count } Open Issues</li>
         </ul>
 
-
         {issues}
 
-        <div className="issues-buttons">
-          <button>Add Issue</button>
+        <div className="issue-form-container">
+          { this.issueForm() }
         </div>
 
       </div>

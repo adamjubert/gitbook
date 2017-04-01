@@ -17,7 +17,6 @@ const IssuesReducer = (oldState = {}, action) => {
       let repoName = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
       let allIssues = oldState[repoName];
       allIssues[action.issue.number] = action.issue;
-      debugger
       return Object.assign({}, oldState, { [repoName] : allIssues } );
     default:
       return oldState;

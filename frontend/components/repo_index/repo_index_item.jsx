@@ -36,7 +36,9 @@ class RepoIndexItem extends React.Component {
       <form onSubmit={ this.addIssueToRepo } className='issue-form'>
         { this.issueTitle() }
         { this.issueBody() }
-        <input type="submit" value="Add Issue" className='btn-add-issue' />
+        <div className="form-btn-container">
+          <input type="submit" value="Add Issue" className='btn-add-issue' />
+        </div>
       </form>
     );
   }
@@ -46,7 +48,8 @@ class RepoIndexItem extends React.Component {
       <label>
         <textarea
           value={this.state.body}
-          onChange={this.update('body')}>
+          onChange={this.update('body')}
+          placeholder="Add a body...">
         </textarea>
       </label>
     );
@@ -58,7 +61,8 @@ class RepoIndexItem extends React.Component {
         <input
           type="text"
           value={this.state.title}
-          onChange={this.update('title')}>
+          onChange={this.update('title')}
+          placeholder="Add a title...">
         </input>
       </label>
     );
@@ -79,19 +83,23 @@ class RepoIndexItem extends React.Component {
 
     return(
       <div className="repo-item" >
-        <a href={ repo.html_url } target="_blank">{ repo.name }</a>
-        <p>{ repo.description }</p>
+        <div className="repo-item-description">
+          <a href={ repo.html_url } target="_blank">{ repo.name }</a>
+          <p>{ repo.description ? repo.description : "No Description" }</p>
 
-        <ul>
-          <li>{ repo.stargazers_count } Stars</li>
-          <li>{ repo.watchers_count } Watchers </li>
-          <li>{ repo.open_issues_count } Open Issues</li>
-        </ul>
+          <ul>
+            <li>{ repo.stargazers_count } Stars</li>
+            <li>{ repo.watchers_count } Watchers </li>
+            <li>{ repo.open_issues_count } Open Issues</li>
+          </ul>
+        </div>
 
-        {issues}
+        <div className="issue-index-container">
+          {issues}
 
-        <div className="issue-form-container">
-          { this.issueForm() }
+          <div className="issue-form-container">
+            { this.issueForm() }
+          </div>
         </div>
 
       </div>

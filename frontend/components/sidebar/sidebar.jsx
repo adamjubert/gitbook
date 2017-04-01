@@ -32,16 +32,18 @@ class Sidebar extends React.Component {
 
 
     return(
-      <div className="sidebar">
-        <img className="profile-pic" src={ user.avatar_url } />
-        <h2>{ user.name }</h2>
-        <h4>{ user.login }</h4>
-        <ul>
-          { user.bio ? userBio : '' }
-          { user.location ? userLocation : '' }
-          { user.email ? userEmail : '' }
-          { user.blog ? userWebsite : '' }
-        </ul>
+      <div className="sidebar-container">
+        <div className="sidebar">
+          <img className="profile-pic" src={ user.avatar_url } />
+          <h2>{ user.name }</h2>
+          <h4>{ user.login }</h4>
+          <ul>
+            { user.bio ? userBio : '' }
+            { user.location ? userLocation : '' }
+            { user.email ? userEmail : '' }
+            { user.blog ? userWebsite : '' }
+          </ul>
+        </div>
       </div>
     );
   }

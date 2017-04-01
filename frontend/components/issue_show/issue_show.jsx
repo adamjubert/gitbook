@@ -18,7 +18,6 @@ class IssueShow extends React.Component {
     // let repoUrl = issue.repository_url;
     // let repo = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
     // issue.repo = repo;
-    // debugger
     this.props.updateIssue(issue);
   }
 
@@ -26,17 +25,17 @@ class IssueShow extends React.Component {
     let issue = this.props.issue;
     issue.title = this.state.title;
     issue.body = this.state.body;
-    debugger
     this.props.updateIssue(issue).then(this.toggleEditClick);
   }
 
   issueForm() {
-    debugger
     return (
       <form onSubmit={ this.updateIssue } className='issue-form'>
         { this.issueTitle() }
         { this.issueBody() }
-        <input type="submit" value="Update Issue" className='btn-add-issue' />
+        <div className='form-btn-container'>
+          <input type='submit' value='Update Issue' className='btn-add-issue' />
+        </div>
       </form>
     );
   }
@@ -65,13 +64,11 @@ class IssueShow extends React.Component {
   }
 
   issueText() {
-    debugger
     const issue = this.props.issue;
 
     return(
       <div className="issue-text">
         <p><span className="issue-title">{ issue.title }</span> { issue.body }</p>
-        <a onClick={ this.toggleEditClick }>Edit Issue</a>
       </div>
     );
   }
@@ -101,9 +98,19 @@ class IssueShow extends React.Component {
     return(
       <div className="issue-show" >
         <div>
-          <h3>{ issue.state }</h3>
-          { this.state.editing ? this.issueForm() : this.issueText() }
-          <button onClick={ () => this.handleButtonClick(buttonAction) }> { buttonText } </button>
+          { this.state.editing ?
+            this.issueForm() :
+            this.issueText()
+          }
+          <div className="issue-options">
+            <a onClick={ this.toggleEditClick }>Edit Issue</a>
+            <span>&bull;</span>
+            <a onClick={ () =>
+                this.handleButtonClick(buttonAction) }> { buttonText }
+            </a>
+            <span>&bull;</span>
+            <p>This issue is { issue.state }</p>
+          </div>
         </div>
       </div>
     );

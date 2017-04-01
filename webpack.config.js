@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./entry.jsx",
+  entry: "./frontend/gitbook.jsx",
   output: {
     filename: "./bundle.js"
   },

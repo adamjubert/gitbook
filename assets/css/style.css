@@ -1,0 +1,117 @@
+html, div, body, h1, h2, h3, h4, h5, h6, a, img, form, article,
+section, nav, p, ul, li {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+	line-height: 1;
+  background: lightgrey;
+
+}
+ol, ul {
+	list-style: none;
+}
+
+.nav-container {
+  background: #4267b2;
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 850px;
+  margin: 0 auto;
+  padding-top: 8px;
+  color: white;
+  align-items: center;
+
+}
+
+.nav h1 {
+  font-size: 32px;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: center;
+}
+
+#nav-username {
+  min-width: 100px;
+}
+
+/***** BODY *****/
+
+.body {
+  width: 850px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar{
+  margin-top: 20px;
+  width: 30%;
+  text-align: center;
+  background: white;
+}
+
+.profile-pic {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.sidebar h2 {
+  font-size: 28px;
+}
+
+.sidebar ul {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  margin: 20px 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar li i {
+  width: 24px;
+}
+
+
+/****** REPO INDEX ******/
+.repo-index-container {
+  margin-top: 20px;
+  width: 65%;
+}
+
+
+/******* REPO ITEM *****/
+.repo-item {
+  background: white;
+  width: 80%;
+  margin: 0 auto 20px;
+}
+
+.repo-item ul {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.repo-item ul li {
+  margin: 0px 10px;
+}
+
+.issues-buttons {
+  display: flex;
+  justify-content: flex-end;
+
+}

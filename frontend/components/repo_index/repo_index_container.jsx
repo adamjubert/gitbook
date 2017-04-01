@@ -6,8 +6,7 @@ import RepoIndex from './repo_index';
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    repos: state.repos,
-    issues: state.issues[0]
+    repos: state.repos
   };
 };
 

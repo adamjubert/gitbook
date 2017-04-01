@@ -1,4 +1,5 @@
 import React from 'react';
+import IssueIndex from '../issue_index/issue_index';
 
 class RepoIndexItem extends React.Component {
   constructor(props) {
@@ -8,24 +9,35 @@ class RepoIndexItem extends React.Component {
     this.handleViewIssues = this.handleViewIssues.bind(this);
   }
 
+  componentDidMount() {
+    const username = this.props.username;
+    const repo = this.props.repo.name;
+    this.props.fetchIssues(username, repo).then(() => this.addIssuesToRepo());
+  }
+
   handleViewIssues(e) {
-    this.state.clicked ? this.setState({ clicked: false }) : this.showIssues(e);
+    this.state.clicked ?
+      this.setState({ clicked: false }) :
+      this.showIssues(e);
   }
 
   showIssues(e) {
-    const username = this.props.user;
+    const username = this.props.username;
     const repo = e.target.id;
     this.props.fetchIssues(username, repo).then(() => this.addIssuesToRepo());
   }
 
   addIssuesToRepo() {
-    this.setState({ clicked: true });
+
   }
 
   render() {
     const repo = this.props.repo;
-    const issues = <h1>Issues :)</h1>;
-    const viewIssuesButton = this.state.clicked ? 'Hide Issues' : 'View Issues';
+
+    let issues = this.props.issues[repo.name] ?
+      <IssueIndex issues={ this.props.issues[repo.name] }/> :
+      '';
+
     return(
       <div className="repo-item" >
         <a href={ repo.html_url } target="_blank">{ repo.name }</a>
@@ -34,13 +46,16 @@ class RepoIndexItem extends React.Component {
         <ul>
           <li>{ repo.stargazers_count } Stars</li>
           <li>{ repo.watchers_count } Watchers </li>
-          <li>{ repo.open_issues_count } Issues</li>
+          <li>{ repo.open_issues_count } Open Issues</li>
         </ul>
+
+
+        {issues}
+
         <div className="issues-buttons">
           <button>Add Issue</button>
-          <button onClick={ this.handleViewIssues } id={ repo.name }>{ viewIssuesButton }</button>
         </div>
-        { this.state.clicked ? issues : '' }
+
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoIndexItem from './repo_index_item';
+import RepoIndexItemContainer from './repo_index_item_container';
 
 class RepoIndex extends React.Component {
   constructor(props) {
@@ -7,7 +7,7 @@ class RepoIndex extends React.Component {
     this.state = { fetching: true };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchRepos(this.props.user.login)
       .then(() => this.setState({fetching: false}));
   }
@@ -15,14 +15,12 @@ class RepoIndex extends React.Component {
   render() {
     if ( this.state.fetching ) { return null; }
     const repos = this.props.repos;
-
     return(
       <div className="repo-index-container">
         <ul>
           { repos.map((repo) => (
-            <RepoIndexItem repo={ repo }
-              user={ this.props.user.login }
-              fetchIssues = { this.props.fetchIssues }
+            <RepoIndexItemContainer repo={ repo }
+              username={ this.props.user.login }
               key={ repo.id }/>
           )) }
         </ul>

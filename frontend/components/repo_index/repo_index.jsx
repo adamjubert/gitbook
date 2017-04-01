@@ -20,7 +20,10 @@ class RepoIndex extends React.Component {
       <div className="repo-index-container">
         <ul>
           { repos.map((repo) => (
-            <RepoIndexItem repo={ repo } key={ repo.id }/>
+            <RepoIndexItem repo={ repo }
+              user={ this.props.user.login }
+              fetchIssues = { this.props.fetchIssues }
+              key={ repo.id }/>
           )) }
         </ul>
       </div>

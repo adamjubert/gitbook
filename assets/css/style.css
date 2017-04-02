@@ -50,10 +50,6 @@ ol, ul {
   justify-content: center;
 }
 
-#nav-username {
-  min-width: 100px;
-}
-
 /***** BODY *****/
 
 .body {
@@ -182,7 +178,7 @@ ol, ul {
 
 
 .issue-index ul {
-  flex-direction: column-reverse;
+  flex-direction: column;
   border-top: none;
   margin-top: 0;
 }
@@ -302,4 +298,73 @@ ol, ul {
 .issue-state-open {
   color: green;
   text-transform: capitalize;
+}
+
+
+
+/********************
+*** MEDIA QUERIES ***
+********************/
+
+@media (max-width: 880px) {
+  .nav-container {
+    position: relative;
+  }
+  .nav {
+    width: 80%;
+  }
+  .body {
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .sidebar {
+    width: 100%;
+
+    position: relative;
+  }
+
+  .sidebar-inside {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .profile-pic {
+    width: 250px;
+  }
+
+  .sidebar-inside ul {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .repo-index-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .repo-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav-container {
+        height: 80px;
+  }
+  .nav {
+    flex-direction: column;
+  }
+  .nav h1 {
+    margin-bottom: 10px;
+  }
 }

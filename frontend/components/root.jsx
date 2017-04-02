@@ -9,7 +9,7 @@ const Root = ({ store }) => {
   return(
     <Provider store={ store }>
       <HashRouter>
-        <Route path='/' component={ MainPageContainer } />
+        <Route path='' component={ MainPageContainer } />
       </HashRouter>
     </Provider>
   );

@@ -4,7 +4,6 @@ import IssueShowContainer from '../issue_show/issue_show_container';
 class IssueIndex extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import IssueIndex from '../issue_index/issue_index';
 
-class RepoIndexItem extends React.Component {
+class RepoItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { clicked: false, body: '', title: '' };
@@ -74,6 +74,7 @@ class RepoIndexItem extends React.Component {
     };
   }
 
+
   render() {
     const repo = this.props.repo;
     const issues = this.props.issues[repo.name];
@@ -101,7 +102,6 @@ class RepoIndexItem extends React.Component {
 
         <div className="issue-index-container">
           { issuesIndex }
-
           <div className="issue-form-container">
             { this.issueForm() }
           </div>
@@ -112,4 +112,4 @@ class RepoIndexItem extends React.Component {
   }
 }
 
-export default RepoIndexItem;
+export default RepoItem;

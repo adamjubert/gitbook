@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchIssues, createIssue } from '../../actions/issue_actions';
-import RepoIndexItem from './repo_index_item';
+import RepoItem from './repo_item';
 
 const mapStateToProps = ({ issues }) => {
   return {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   fetchIssues: (username, repo) => dispatch(fetchIssues(username, repo))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RepoIndexItem);
+export default connect(mapStateToProps, mapDispatchToProps)(RepoItem);

@@ -1,5 +1,6 @@
 import React from 'react';
-import RepoIndexItemContainer from './repo_index_item_container';
+import RepoItemContainer from '../repo_item/repo_item_container';
+import LoadingSpinner from '../loading_spinner/loading_spinner';
 
 class RepoIndex extends React.Component {
   constructor(props) {
@@ -13,13 +14,16 @@ class RepoIndex extends React.Component {
   }
 
   render() {
-    if ( this.state.fetching ) { return null; }
+    if ( this.state.fetching ) { return (
+      <LoadingSpinner parentClass="repo-index-container"  />
+    );}
+
     const repos = this.props.repos;
     return(
       <div className="repo-index-container">
         <ul>
           { repos.map((repo) => (
-            <RepoIndexItemContainer repo={ repo }
+            <RepoItemContainer repo={ repo }
               username={ this.props.user.login }
               key={ repo.id }/>
           )) }

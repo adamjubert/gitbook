@@ -18,6 +18,18 @@ ol, ul {
 	list-style: none;
 }
 
+.loading-spinner {
+  width: 100%;
+  text-align: center;
+}
+
+.loading-spinner img {
+  width: 60px;
+  height: 60px;
+  margin: 50px auto;
+
+}
+
 .flex-start {
   display: flex;
   justify-content: flex-start;
@@ -39,6 +51,11 @@ ol, ul {
   color: white;
   align-items: center;
 
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
 }
 
 .nav h1 {
@@ -81,8 +98,10 @@ ol, ul {
 }
 
 .profile-pic {
-  /*margin-top: 16px;*/
-  width: 100%;
+  width: 95%;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 3px;
 }
 
 

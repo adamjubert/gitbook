@@ -1,4 +1,4 @@
-import { token } from './token';
+import { token } from './auth-token';
 
 export const fetchUser = (username) => {
   return $.ajax({

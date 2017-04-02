@@ -4926,18 +4926,7 @@ var receiveRepos = function receiveRepos(repos) {
 };
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var token = exports.token = "b1a15ee8ab98cf5a16a449ea231205e1c7f8b14f";
-
-/***/ }),
+/* 39 */,
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12747,10 +12736,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.updateIssue = exports.createIssue = exports.fetchIssues = undefined;
 
-var _token = __webpack_require__(39);
+var _authToken = __webpack_require__(279);
 
 var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
-  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _token.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _authToken.token;
 
   return $.ajax({
     method: 'GET',
@@ -12759,7 +12748,7 @@ var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
 };
 
 var createIssue = exports.createIssue = function createIssue(issue) {
-  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _token.token;
+  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _authToken.token;
 
   return $.ajax({
     url: url,
@@ -12773,7 +12762,7 @@ var updateIssue = exports.updateIssue = function updateIssue(issue) {
   var repoName = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
   var username = issue.user.login;
 
-  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _token.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _authToken.token;
 
   return $.ajax({
     url: url,
@@ -12798,10 +12787,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchRepos = undefined;
 
-var _token = __webpack_require__(39);
+var _authToken = __webpack_require__(279);
 
 var fetchRepos = exports.fetchRepos = function fetchRepos(username) {
-  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _token.token);
+  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _authToken.token);
 
   return $.ajax({
     method: 'GET',
@@ -12821,12 +12810,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchUser = undefined;
 
-var _token = __webpack_require__(39);
+var _authToken = __webpack_require__(279);
 
 var fetchUser = exports.fetchUser = function fetchUser(username) {
   return $.ajax({
     method: 'GET',
-    url: 'https://api.github.com/users/' + username + '?access_token=' + _token.token
+    url: 'https://api.github.com/users/' + username + '?access_token=' + _authToken.token
   });
 };
 
@@ -28480,6 +28469,18 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var token = exports.token = "cef0083f53c68c3caf0dd187910775ad3f144a2d";
 
 /***/ })
 /******/ ]);

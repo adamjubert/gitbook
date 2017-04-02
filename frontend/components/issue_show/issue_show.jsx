@@ -1,5 +1,4 @@
 import React from 'react';
-import IssueForm from '../issue_form/issue_form';
 
 class IssueShow extends React.Component {
   constructor(props) {

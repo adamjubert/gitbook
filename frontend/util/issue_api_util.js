@@ -1,7 +1,8 @@
-import { token } from './secret'
+import { token } from './secret';
 
 export const fetchIssues = (username, repo) => {
   const url =`https://api.github.com/repos/${username}/${repo}/issues?state=all&filter=all&access_token=${token}`;
+
   return $.ajax({
     method: 'GET',
     url

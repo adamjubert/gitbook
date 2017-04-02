@@ -357,6 +357,19 @@ ol, ul {
   }
 }
 
+@media (max-width: 550px) {
+  .sidebar-container {
+    width: 90%;
+  }
+
+  .sidebar-inside {
+    width: 90%;
+  }
+  .profile-pic {
+    width: 90%;
+  }
+}
+
 @media (max-width: 450px) {
   .nav-container {
         height: 80px;

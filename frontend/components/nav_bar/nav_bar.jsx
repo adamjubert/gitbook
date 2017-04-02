@@ -9,8 +9,8 @@ class NavBar extends React.Component {
         <div className="nav">
           <h1>Gitbook</h1>
           <div className="nav-right">
-            <h4>Logged in as: &nbsp;</h4>
-            <h4 id="nav-username">{ this.props.user.login }</h4>
+            <h4>Logged in as &nbsp;</h4>
+            <h4>{ this.props.user.login }</h4>
           </div>
         </div>
       </div>

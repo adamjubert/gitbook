@@ -7,10 +7,9 @@ class IssueIndex extends React.Component {
 
   }
 
-
   render() {
     let issues = this.props.issues;
-    let issuesArray = Object.keys(this.props.issues)
+    let issuesArray = Object.keys(this.props.issues);
     return(
       <div className="issue-index" >
         <ul>

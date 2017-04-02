@@ -3,40 +3,58 @@ import React from 'react';
 
 class Sidebar extends React.Component {
 
+  username() {
+    return(
+      <li>
+        <i className="fa fa-user" aria-hidden="true" />
+        { this.user.login }
+      </li>
+    );
+  }
+
+  userLocation() {
+    return(
+      <li>
+        <i className="fa fa-map-marker" aria-hidden="true" />
+        { this.user.location }
+      </li>
+    );
+  }
+
+  userEmail() {
+    return(
+      <li>
+        <i className="fa fa-envelope" aria-hidden="true" />
+        <a href={ "mailto:" + this.user.email}>{ this.user.email }</a>
+      </li>
+    );
+  }
+
+  userWebsite() {
+    return(
+      <li>
+        <i className="fa fa-home" aria-hidden="true" />
+        <a href={ this.user.blog } target="_blank">{ this.user.blog }</a>
+      </li>
+    );
+  }
 
   render() {
     const faLoc = <i class="fa fa-map-marker" aria-hidden="true"></i>;
-    const user = this.props.user;
-
-    let userLocation =
-      <li>
-        <i className="fa fa-map-marker" aria-hidden="true" />
-        { user.location }
-      </li>;
-    let userEmail =
-      <li>
-        <i className="fa fa-envelope" aria-hidden="true" />
-        <a href={ "mailto:" + user.email}>{ user.email }</a>
-      </li>;
-    let userWebsite =
-      <li>
-        <i className="fa fa-home" aria-hidden="true" />
-        <a href={ user.blog } target="_blank">{ user.blog }</a>
-      </li>;
-
+    this.user = this.props.user;
 
     return(
       <div className="sidebar-container">
         <div className="sidebar">
           <div className="sidebar-inside">
-            <img className="profile-pic" src={ user.avatar_url } />
-            <h2>{ user.name }</h2>
-            <h4>{ user.login }</h4>
-            <h4>{ user.bio }</h4>
+            <img className="profile-pic" src={ this.user.avatar_url } />
+            <h2>{ this.user.name }</h2>
+            <h4>{ this.user.bio }</h4>
             <ul>
-              { user.location ? userLocation : '' }
-              { user.email ? userEmail : '' }
-              { user.blog ? userWebsite : '' }
+              { this.user.login ? this.username() : '' }
+              { this.user.location ? this.userLocation() : '' }
+              { this.user.email ? this.userEmail() : '' }
+              { this.user.blog ? this.userWebsite() : '' }
             </ul>
           </div>
         </div>

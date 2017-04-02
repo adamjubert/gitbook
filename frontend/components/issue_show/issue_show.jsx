@@ -1,4 +1,5 @@
 import React from 'react';
+import IssueForm from '../issue_form/issue_form';
 
 class IssueShow extends React.Component {
   constructor(props) {
@@ -67,7 +68,6 @@ class IssueShow extends React.Component {
 
   issueText() {
     const issue = this.props.issue;
-
     return(
       <div className="issue-text">
         <span className="issue-title">{ issue.title }</span>

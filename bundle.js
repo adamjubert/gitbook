@@ -12557,7 +12557,7 @@ var _store2 = _interopRequireDefault(_store);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (document) {
+if (typeof document !== "undefined") {
 	document.addEventListener("DOMContentLoaded", function () {
 		var root = document.getElementById("root");
 		_reactDom2.default.render(_react2.default.createElement(_root2.default, { store: (0, _store2.default)() }), root);

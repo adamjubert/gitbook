@@ -1,8 +1,8 @@
 import React from 'react';
 import NavBar from '../nav_bar/nav_bar';
-import ProfileShow from '../profile_show/profile_show';
+// import ProfileShow from '../profile_show/profile_show';
 import Sidebar from '../sidebar/sidebar';
-import RepoIndexContainer from '../repo_index/repo_index_container'
+import RepoIndexContainer from '../repo_index/repo_index_container';
 
 class MainPage extends React.Component {
   constructor(props) {

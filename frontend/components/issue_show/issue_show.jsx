@@ -99,7 +99,6 @@ class IssueShow extends React.Component {
       buttonAction = "open";
     }
 
-    debugger
     return(
       <div className="issue-show" >
         <div>

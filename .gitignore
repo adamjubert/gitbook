@@ -8,3 +8,5 @@ npm-debug.log
 
 frontend/util/util.js
 frontend/util/secret.js
+frontend/util/token.js
+frontend/util/auth-token.js

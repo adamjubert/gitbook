@@ -1,15 +1,16 @@
+import { token } from './util'
+
 export const fetchIssues = (username, repo) => {
+  const url =`https://api.github.com/repos/${username}/${repo}/issues?state=all&filter=all&access_token=${token}`;
   return $.ajax({
     method: 'GET',
-    url: `https://api.github.com/repos/${username}/${repo}/issues?state=all&filter=all&access_token=0867f7b293610ec20774b99085de377197c72f17`,
+    url
   });
 };
 
 
 export const createIssue = issue => {
-  let url = `https://api.github.com/repos/${issue.username}/${issue.repo}` +
-    "/issues?access_token=" +
-    "0867f7b293610ec20774b99085de377197c72f17";
+  const url = `https://api.github.com/repos/${issue.username}/${issue.repo}/issues?access_token=${token}`;
 
   return $.ajax({
     url,
@@ -23,8 +24,11 @@ export const updateIssue = issue => {
   let repoUrl = issue.repository_url;
   let repoName = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
   let username = issue.user.login;
+
+  const url = `https://api.github.com/repos/${username}/${repoName}/issues/${issue.number}?access_token=${token}`;
+
   return $.ajax({
-    url: `https://api.github.com/repos/${username}/${repoName}/issues/${issue.number}?access_token=0867f7b293610ec20774b99085de377197c72f17`,
+    url,
     method: 'PATCH',
     data: JSON.stringify({
       state: issue.state,

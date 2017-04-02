@@ -4,6 +4,7 @@ import { fetchIssues } from '../../actions/issue_actions';
 import RepoIndex from './repo_index';
 
 const mapStateToProps = (state) => {
+
   return {
     user: state.user,
     repos: state.repos

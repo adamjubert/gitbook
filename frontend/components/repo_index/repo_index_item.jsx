@@ -76,10 +76,15 @@ class RepoIndexItem extends React.Component {
 
   render() {
     const repo = this.props.repo;
+    const issues = this.props.issues[repo.name];
 
-    let issues = this.props.issues[repo.name] ?
-      <IssueIndex issues={ this.props.issues[repo.name] }/> :
-      '';
+    let issuesIndex = '';
+    let issuesCount = 0;
+
+    if ( issues ) {
+      issuesIndex = <IssueIndex issues={ issues }/>;
+      issuesCount = Object.keys(issues).length;
+    }
 
     return(
       <div className="repo-item" >
@@ -90,12 +95,12 @@ class RepoIndexItem extends React.Component {
           <ul>
             <li>{ repo.stargazers_count } Stars</li>
             <li>{ repo.watchers_count } Watchers </li>
-            <li>{ repo.open_issues_count } Open Issues</li>
+            <li>{ issuesCount } Issues</li>
           </ul>
         </div>
 
         <div className="issue-index-container">
-          {issues}
+          { issuesIndex }
 
           <div className="issue-form-container">
             { this.issueForm() }

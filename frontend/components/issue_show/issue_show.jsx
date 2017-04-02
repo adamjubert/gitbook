@@ -3,7 +3,13 @@ import React from 'react';
 class IssueShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { editing: false, title: this.props.issue.title, body: this.props.issue.body };
+
+    this.state = {
+      editing: false,
+      title: this.props.issue.title,
+      body: this.props.issue.body
+    };
+
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.toggleEditClick = this.toggleEditClick.bind(this);
     this.issueForm = this.issueForm.bind(this);
@@ -14,10 +20,6 @@ class IssueShow extends React.Component {
   handleButtonClick(buttonAction) {
     let issue = this.props.issue;
     issue.state = buttonAction;
-    // issue.username = issue.user.login;
-    // let repoUrl = issue.repository_url;
-    // let repo = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
-    // issue.repo = repo;
     this.props.updateIssue(issue);
   }
 
@@ -68,7 +70,8 @@ class IssueShow extends React.Component {
 
     return(
       <div className="issue-text">
-        <p><span className="issue-title">{ issue.title }</span> { issue.body }</p>
+        <span className="issue-title">{ issue.title }</span>
+        <p> { issue.body }</p>
       </div>
     );
   }
@@ -95,6 +98,8 @@ class IssueShow extends React.Component {
       buttonText = "Reopen Issue";
       buttonAction = "open";
     }
+
+    debugger
     return(
       <div className="issue-show" >
         <div>
@@ -104,12 +109,12 @@ class IssueShow extends React.Component {
           }
           <div className="issue-options">
             <a onClick={ this.toggleEditClick }>Edit Issue</a>
-            <span>&bull;</span>
+            <span className="bullet">&bull;</span>
             <a onClick={ () =>
                 this.handleButtonClick(buttonAction) }> { buttonText }
             </a>
-            <span>&bull;</span>
-            <p>This issue is { issue.state }</p>
+            <span className="bullet">&bull;</span>
+            <p className={ "issue-state-" + issue.state }>This Issue Is { issue.state }</p>
           </div>
         </div>
       </div>

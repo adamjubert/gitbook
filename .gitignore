@@ -5,3 +5,5 @@ bundle.js
 bundle.js.map
 .DS_Store
 npm-debug.log
+
+frontend/util/util.js

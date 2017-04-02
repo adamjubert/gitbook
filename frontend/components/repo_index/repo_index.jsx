@@ -8,7 +8,7 @@ class RepoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchRepos(this.props.user.login)
+    this.props.fetchRepos("adamjubert")
       .then(() => this.setState({fetching: false}));
   }
 

@@ -65,7 +65,7 @@ ol, ul {
 }
 
 .sidebar-container {
-  width: 30%
+  width: 36%
 }
 
 .sidebar{
@@ -77,32 +77,51 @@ ol, ul {
   position: fixed;
   border: 1px solid;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-
+  color: #24282f;
 }
 
+.sidebar-inside {
+  padding: 20px;
+}
 
 .profile-pic {
-  margin-top: 20px;
-  width: 80%;
+  /*margin-top: 16px;*/
+  width: 100%;
 }
+
 
 .sidebar h2 {
   font-size: 28px;
+  margin-top: 10px;
+}
+
+.sidebar h4 {
+  margin-bottom: 10px;
 }
 
 .sidebar ul {
   /*display: flex;*/
   /*flex-direction: column;*/
   margin: 20px 0;
+  text-align: left;
 }
 
 .sidebar ul li {
-  display: flex;
-  justify-content: flex-start;
+  margin: 10px 0;
 }
 
 .sidebar li i {
+  text-align: center;
   width: 24px;
+}
+
+.sidebar li a {
+  color: #365899;
+  text-decoration: none;
+}
+
+.sidebar li a:hover {
+  text-decoration: underline;
 }
 
 
@@ -240,11 +259,8 @@ ol, ul {
   margin-right: 6px;
 }
 
-.issue-title p {
-}
-
 .issue-text p {
-  margin: 0;
+  margin: 4px 0;
   font-weight: 400;
   color: black;
 }
@@ -254,10 +270,9 @@ ol, ul {
   justify-content: flex-start;
   max-height: 30px;
   align-items: baseline;
-  margin-top: 8px;
 }
 
-.issue-options span {
+.issue-options .bullet {
   margin: 0 4px;
   font-size: 12px;
 }
@@ -276,4 +291,14 @@ ol, ul {
   margin: 0;
   font-size: 14px;
   font-weight: 400;
+}
+
+.issue-state-closed {
+  color: red;
+  text-transform: capitalize;
+}
+
+.issue-state-open {
+  color: green;
+  text-transform: capitalize;
 }

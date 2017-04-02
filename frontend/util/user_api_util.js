@@ -1,6 +1,8 @@
-export const fetchUser = () => {
+import { token } from './util';
+
+export const fetchUser = (username) => {
   return $.ajax({
     method: 'GET',
-    url: `https://api.github.com/users/adamjubert?access_token=0867f7b293610ec20774b99085de377197c72f17`,
+    url: `https://api.github.com/users/${username}?access_token=${token}`,
   });
 };

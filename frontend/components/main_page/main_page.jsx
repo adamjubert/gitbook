@@ -11,6 +11,7 @@ class MainPage extends React.Component {
 
   componentWillMount() {
     this.props.fetchUser("adamjubert");
+    this.props.fetchRepos("adamjubert");
   }
 
 

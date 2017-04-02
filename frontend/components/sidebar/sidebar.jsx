@@ -8,12 +8,6 @@ class Sidebar extends React.Component {
     const faLoc = <i class="fa fa-map-marker" aria-hidden="true"></i>;
     const user = this.props.user;
 
-    let userBio =
-      <li>
-        <i className="fa fa-address-book" aria-hidden="true" />
-        { user.location }
-      </li>;
-
     let userLocation =
       <li>
         <i className="fa fa-map-marker" aria-hidden="true" />
@@ -22,27 +16,29 @@ class Sidebar extends React.Component {
     let userEmail =
       <li>
         <i className="fa fa-envelope" aria-hidden="true" />
-        { user.email }
+        <a href={ "mailto:" + user.email}>{ user.email }</a>
       </li>;
     let userWebsite =
       <li>
         <i className="fa fa-home" aria-hidden="true" />
-        { user.blog }
+        <a href={ user.blog } target="_blank">{ user.blog }</a>
       </li>;
 
 
     return(
       <div className="sidebar-container">
         <div className="sidebar">
-          <img className="profile-pic" src={ user.avatar_url } />
-          <h2>{ user.name }</h2>
-          <h4>{ user.login }</h4>
-          <ul>
-            { user.bio ? userBio : '' }
-            { user.location ? userLocation : '' }
-            { user.email ? userEmail : '' }
-            { user.blog ? userWebsite : '' }
-          </ul>
+          <div className="sidebar-inside">
+            <img className="profile-pic" src={ user.avatar_url } />
+            <h2>{ user.name }</h2>
+            <h4>{ user.login }</h4>
+            <h4>{ user.bio }</h4>
+            <ul>
+              { user.location ? userLocation : '' }
+              { user.email ? userEmail : '' }
+              { user.blog ? userWebsite : '' }
+            </ul>
+          </div>
         </div>
       </div>
     );

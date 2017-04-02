@@ -306,7 +306,7 @@ ol, ul {
 *** MEDIA QUERIES ***
 ********************/
 
-@media (max-width: 880px) {
+@media (max-device-width: 880px), (max-width: 880px) {
   .nav-container {
     position: relative;
   }
@@ -357,7 +357,7 @@ ol, ul {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-device-width: 550px), (max-width: 550px){
   .sidebar-container {
     width: 90%;
   }
@@ -370,9 +370,10 @@ ol, ul {
   }
 }
 
+
 @media (max-width: 450px) {
   .nav-container {
-        height: 80px;
+    height: 80px;
   }
   .nav {
     flex-direction: column;

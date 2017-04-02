@@ -1,7 +1,7 @@
-let React = require('react');
-let ReactDOM = require('react-dom');
-let Root = require('./components/root');
-let configureStore = require('./store/store');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './components/root';
+import configureStore from './store/store';
 
 
 document.addEventListener("DOMContentLoaded", () => {

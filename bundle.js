@@ -12736,10 +12736,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.updateIssue = exports.createIssue = exports.fetchIssues = undefined;
 
-var _authToken = __webpack_require__(279);
+var _auth_token = __webpack_require__(280);
 
 var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
-  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _authToken.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _auth_token.token;
 
   return $.ajax({
     method: 'GET',
@@ -12748,7 +12748,7 @@ var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
 };
 
 var createIssue = exports.createIssue = function createIssue(issue) {
-  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _authToken.token;
+  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _auth_token.token;
 
   return $.ajax({
     url: url,
@@ -12762,7 +12762,7 @@ var updateIssue = exports.updateIssue = function updateIssue(issue) {
   var repoName = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
   var username = issue.user.login;
 
-  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _authToken.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _auth_token.token;
 
   return $.ajax({
     url: url,
@@ -12787,10 +12787,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchRepos = undefined;
 
-var _authToken = __webpack_require__(279);
+var _auth_token = __webpack_require__(280);
 
 var fetchRepos = exports.fetchRepos = function fetchRepos(username) {
-  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _authToken.token);
+  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _auth_token.token);
 
   return $.ajax({
     method: 'GET',
@@ -12810,12 +12810,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchUser = undefined;
 
-var _authToken = __webpack_require__(279);
+var _auth_token = __webpack_require__(280);
 
 var fetchUser = exports.fetchUser = function fetchUser(username) {
   return $.ajax({
     method: 'GET',
-    url: 'https://api.github.com/users/' + username + '?access_token=' + _authToken.token
+    url: 'https://api.github.com/users/' + username + '?access_token=' + _auth_token.token
   });
 };
 
@@ -28471,7 +28471,8 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 279 */
+/* 279 */,
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28480,7 +28481,7 @@ module.exports = function(module) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var token = exports.token = "cef0083f53c68c3caf0dd187910775ad3f144a2d";
+var token = exports.token = "21b75e6828175f9caa1cbd2045bd02b2abf8fb61 ";
 
 /***/ })
 /******/ ]);

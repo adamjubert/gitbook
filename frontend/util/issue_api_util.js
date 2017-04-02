@@ -1,4 +1,4 @@
-import { token } from './auth-token';
+import { token } from './auth_token';
 
 export const fetchIssues = (username, repo) => {
   const url =`https://api.github.com/repos/${username}/${repo}/issues?state=all&filter=all&access_token=${token}`;

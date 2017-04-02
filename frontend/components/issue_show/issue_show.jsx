@@ -24,13 +24,6 @@ class IssueShow extends React.Component {
     this.props.updateIssue(issue);
   }
 
-  updateIssue() {
-    let issue = this.props.issue;
-    issue.title = this.state.title;
-    issue.body = this.state.body;
-    this.props.updateIssue(issue).then(this.toggleEditClick);
-  }
-
   issueForm() {
     return (
       <form onSubmit={ this.updateIssue } className='issue-form'>
@@ -58,7 +51,7 @@ class IssueShow extends React.Component {
     return (
       <label>
         <input
-          type="text"
+          type='text'
           value={this.state.title}
           onChange={this.update('title')}>
         </input>
@@ -69,8 +62,8 @@ class IssueShow extends React.Component {
   issueText() {
     const issue = this.props.issue;
     return(
-      <div className="issue-text">
-        <span className="issue-title">{ issue.title }</span>
+      <div className='issue-text'>
+        <span className='issue-title'>{ issue.title }</span>
         <p> { issue.body }</p>
       </div>
     );
@@ -87,33 +80,41 @@ class IssueShow extends React.Component {
     };
   }
 
+  updateIssue() {
+    let issue = this.props.issue;
+    issue.title = this.state.title;
+    issue.body = this.state.body;
+    this.props.updateIssue(issue).then(this.toggleEditClick);
+  }
 
   render() {
     const issue = this.props.issue;
     let buttonText, buttonAction;
-    if (issue.state === "open") {
-      buttonText = "Close Issue";
-      buttonAction = "close";
+    if (issue.state === 'open') {
+      buttonText = 'Close Issue';
+      buttonAction = 'close';
     } else {
-      buttonText = "Reopen Issue";
-      buttonAction = "open";
+      buttonText = 'Reopen Issue';
+      buttonAction = 'open';
     }
 
     return(
-      <div className="issue-show" >
+      <div className='issue-show' >
         <div>
           { this.state.editing ?
             this.issueForm() :
             this.issueText()
           }
-          <div className="issue-options">
+          <div className='issue-options'>
             <a onClick={ this.toggleEditClick }>Edit Issue</a>
-            <span className="bullet">&bull;</span>
+            <span className='bullet'>&bull;</span>
             <a onClick={ () =>
                 this.handleButtonClick(buttonAction) }> { buttonText }
             </a>
-            <span className="bullet">&bull;</span>
-            <p className={ "issue-state-" + issue.state }>This Issue Is { issue.state }</p>
+            <span className='bullet'>&bull;</span>
+            <p className={ 'issue-state-' + issue.state }>
+              This Issue Is { issue.state }
+            </p>
           </div>
         </div>
       </div>

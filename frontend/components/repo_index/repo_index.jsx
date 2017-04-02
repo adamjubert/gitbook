@@ -9,23 +9,24 @@ class RepoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchRepos("adamjubert")
+    this.props.fetchRepos('adamjubert')
       .then(() => this.setState({fetching: false}));
   }
 
   render() {
     if ( this.state.fetching ) { return (
-      <LoadingSpinner parentClass="repo-index-container"  />
+      <LoadingSpinner parentClass='repo-index-container'  />
     );}
 
     const repos = this.props.repos;
     return(
-      <div className="repo-index-container">
+      <div className='repo-index-container'>
         <ul>
           { repos.map((repo) => (
-            <RepoItemContainer repo={ repo }
+            <RepoItemContainer
+              repo={ repo }
               username={ this.props.user.login }
-              key={ repo.id }/>
+              key={ repo.id } />
           )) }
         </ul>
       </div>

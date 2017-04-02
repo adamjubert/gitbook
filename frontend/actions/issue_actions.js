@@ -1,7 +1,7 @@
 import * as IssueApiUtil from '../util/issue_api_util';
 
-export const RECEIVE_ISSUES = "RECEIVE_ISSUES";
-export const RECEIVE_ISSUE = "RECEIVE_ISSUE";
+export const RECEIVE_ISSUES = 'RECEIVE_ISSUES';
+export const RECEIVE_ISSUE = 'RECEIVE_ISSUE';
 
 
 export const fetchIssues = (username, repo) => dispatch => {

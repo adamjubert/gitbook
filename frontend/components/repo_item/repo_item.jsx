@@ -18,10 +18,10 @@ class RepoItem extends React.Component {
 
   addIssueToRepo() {
     let issue = {
-      "title": this.state.title,
-      "body": this.state.body,
-      "repo": this.props.repo.name,
-      "username": this.props.username
+      'title': this.state.title,
+      'body': this.state.body,
+      'repo': this.props.repo.name,
+      'username': this.props.username
     };
     this.props.createIssue(issue).then( this.clearForm );
   }
@@ -30,28 +30,27 @@ class RepoItem extends React.Component {
     this.setState({ body: '', title: '' });
   }
 
-
-  issueForm() {
-    return (
-      <form onSubmit={ this.addIssueToRepo } className='issue-form'>
-        { this.issueTitle() }
-        { this.issueBody() }
-        <div className="form-btn-container">
-          <input type="submit" value="Add Issue" className='btn-add-issue' />
-        </div>
-      </form>
-    );
-  }
-
   issueBody() {
     return (
       <label>
         <textarea
           value={this.state.body}
           onChange={this.update('body')}
-          placeholder="Add a body...">
+          placeholder='Add a body...'>
         </textarea>
       </label>
+    );
+  }
+
+  issueForm() {
+    return (
+      <form onSubmit={ this.addIssueToRepo } className='issue-form'>
+        { this.issueTitle() }
+        { this.issueBody() }
+        <div className='form-btn-container'>
+          <input type='submit' value='Add Issue' className='btn-add-issue' />
+        </div>
+      </form>
     );
   }
 
@@ -59,10 +58,10 @@ class RepoItem extends React.Component {
     return (
       <label>
         <input
-          type="text"
+          type='text'
           value={this.state.title}
           onChange={this.update('title')}
-          placeholder="Add a title...">
+          placeholder='Add a title...'>
         </input>
       </label>
     );
@@ -73,7 +72,6 @@ class RepoItem extends React.Component {
       this.setState({[field]: e.target.value});
     };
   }
-
 
   render() {
     const repo = this.props.repo;
@@ -88,21 +86,22 @@ class RepoItem extends React.Component {
     }
 
     return(
-      <div className="repo-item" >
-        <div className="repo-item-description">
-          <a href={ repo.html_url } target="_blank">{ repo.name }</a>
-          <p>{ repo.description ? repo.description : "No Description" }</p>
+      <div className='repo-item' >
+        <div className='repo-item-description'>
+          <a href={ repo.html_url } target='_blank'>{ repo.name }</a>
+          <p>{ repo.description ? repo.description : 'No Description' }</p>
 
           <ul>
             <li>{ repo.stargazers_count } Stars</li>
             <li>{ repo.watchers_count } Watchers </li>
             <li>{ issuesCount } Issues</li>
           </ul>
+
         </div>
 
-        <div className="issue-index-container">
+        <div className='issue-index-container'>
           { issuesIndex }
-          <div className="issue-form-container">
+          <div className='issue-form-container'>
             { this.issueForm() }
           </div>
         </div>

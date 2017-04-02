@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 import { fetchIssues, createIssue } from '../../actions/issue_actions';
 import RepoItem from './repo_item';
 
-const mapStateToProps = ({ issues }) => {
-  return {
+const mapStateToProps = ({ issues }) => ({
     issues
-  };
-};
+});
 
 const mapDispatchToProps = dispatch => ({
   createIssue: (issue) => dispatch(createIssue(issue)),

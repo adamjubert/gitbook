@@ -10,10 +10,10 @@ class IssueIndex extends React.Component {
     let issues = this.props.issues;
     let issuesArray = Object.keys(this.props.issues);
     return(
-      <div className="issue-index" >
+      <div className='issue-index' >
         <ul>
           { issuesArray.map((key) => (
-            <IssueShowContainer issue={ issues[key] } key={ "issue-" + issues[key].id } />
+            <IssueShowContainer issue={ issues[key] } key={ 'issue-' + issues[key].id } />
           )) }
         </ul>
       </div>

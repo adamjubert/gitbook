@@ -1,6 +1,6 @@
 import * as RepoApiUtil from '../util/repo_api_util';
 
-export const RECEIVE_REPOS = "RECEIVE_REPOS";
+export const RECEIVE_REPOS = 'RECEIVE_REPOS';
 
 
 export const fetchRepos = (username) => dispatch => {
@@ -8,6 +8,7 @@ export const fetchRepos = (username) => dispatch => {
     dispatch(receiveRepos(repos));
   });
 };
+
 
 const receiveRepos = repos => ({
   type: RECEIVE_REPOS,

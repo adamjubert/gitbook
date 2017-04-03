@@ -11886,7 +11886,9 @@ var MainPage = function (_React$Component) {
   _createClass(MainPage, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.props.fetchUser('adamjubert').then(this.props.fetchRepos('adamjubert')).then(this.setState({ fetching: false }));
+      var githubUsername = this.props.githubUsername;
+
+      this.props.fetchUser(githubUsername).then(this.props.fetchRepos(githubUsername)).then(this.setState({ fetching: false }));
     }
   }, {
     key: 'render',
@@ -11931,6 +11933,8 @@ var _user_actions = __webpack_require__(68);
 
 var _repo_actions = __webpack_require__(38);
 
+var _customize = __webpack_require__(281);
+
 var _main_page = __webpack_require__(115);
 
 var _main_page2 = _interopRequireDefault(_main_page);
@@ -11940,7 +11944,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(_ref) {
   var user = _ref.user;
   return {
-    user: user
+    user: user,
+    githubUsername: _customize.githubUsername
   };
 };
 
@@ -12083,7 +12088,7 @@ var RepoIndex = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchRepos('adamjubert').then(function () {
+      this.props.fetchRepos(this.props.githubUsername).then(function () {
         return _this2.setState({ fetching: false });
       });
     }
@@ -12127,7 +12132,7 @@ exports.default = RepoIndex;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _reactRedux = __webpack_require__(30);
@@ -12136,6 +12141,8 @@ var _repo_actions = __webpack_require__(38);
 
 var _issue_actions = __webpack_require__(31);
 
+var _customize = __webpack_require__(281);
+
 var _repo_index = __webpack_require__(118);
 
 var _repo_index2 = _interopRequireDefault(_repo_index);
@@ -12143,23 +12150,24 @@ var _repo_index2 = _interopRequireDefault(_repo_index);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var user = _ref.user,
-      repos = _ref.repos;
-  return {
-    user: user,
-    repos: repos
-  };
+    var user = _ref.user,
+        repos = _ref.repos;
+    return {
+        user: user,
+        repos: repos,
+        githubUsername: _customize.githubUsername
+    };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    fetchRepos: function fetchRepos(username) {
-      return dispatch((0, _repo_actions.fetchRepos)(username));
-    },
-    fetchIssues: function fetchIssues(username, repo) {
-      return dispatch((0, _issue_actions.fetchIssues)(username, repo));
-    }
-  };
+    return {
+        fetchRepos: function fetchRepos(username) {
+            return dispatch((0, _repo_actions.fetchRepos)(username));
+        },
+        fetchIssues: function fetchIssues(username, repo) {
+            return dispatch((0, _issue_actions.fetchIssues)(username, repo));
+        }
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_repo_index2.default);
@@ -12736,10 +12744,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.updateIssue = exports.createIssue = exports.fetchIssues = undefined;
 
-var _auth_token = __webpack_require__(280);
+var _customize = __webpack_require__(281);
 
 var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
-  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _auth_token.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=all&filter=all&access_token=' + _customize.token;
 
   return $.ajax({
     method: 'GET',
@@ -12748,7 +12756,7 @@ var fetchIssues = exports.fetchIssues = function fetchIssues(username, repo) {
 };
 
 var createIssue = exports.createIssue = function createIssue(issue) {
-  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _auth_token.token;
+  var url = 'https://api.github.com/repos/' + issue.username + '/' + issue.repo + '/issues?access_token=' + _customize.token;
 
   return $.ajax({
     url: url,
@@ -12762,7 +12770,7 @@ var updateIssue = exports.updateIssue = function updateIssue(issue) {
   var repoName = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
   var username = issue.user.login;
 
-  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _auth_token.token;
+  var url = 'https://api.github.com/repos/' + username + '/' + repoName + '/issues/' + issue.number + '?access_token=' + _customize.token;
 
   return $.ajax({
     url: url,
@@ -12787,10 +12795,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchRepos = undefined;
 
-var _auth_token = __webpack_require__(280);
+var _customize = __webpack_require__(281);
 
 var fetchRepos = exports.fetchRepos = function fetchRepos(username) {
-  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _auth_token.token);
+  var url = 'https://api.github.com/users/' + username + ('/repos?sort=updated?access_token=' + _customize.token);
 
   return $.ajax({
     method: 'GET',
@@ -12810,12 +12818,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchUser = undefined;
 
-var _auth_token = __webpack_require__(280);
+var _customize = __webpack_require__(281);
 
 var fetchUser = exports.fetchUser = function fetchUser(username) {
   return $.ajax({
     method: 'GET',
-    url: 'https://api.github.com/users/' + username + '?access_token=' + _auth_token.token
+    url: 'https://api.github.com/users/' + username + '?access_token=' + _customize.token
   });
 };
 
@@ -28472,7 +28480,8 @@ module.exports = function(module) {
 
 /***/ }),
 /* 279 */,
-/* 280 */
+/* 280 */,
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28481,7 +28490,9 @@ module.exports = function(module) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var token = exports.token = "21b75e6828175f9caa1cbd2045bd02b2abf8fb61 ";
+var token = exports.token = '';
+
+var githubUsername = exports.githubUsername = '';
 
 /***/ })
 /******/ ]);

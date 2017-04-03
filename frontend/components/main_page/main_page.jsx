@@ -4,6 +4,7 @@ import Sidebar from '../sidebar/sidebar';
 import RepoIndexContainer from '../repo_index/repo_index_container';
 import LoadingSpinner from '../loading_spinner/loading_spinner';
 
+
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
@@ -11,8 +12,10 @@ class MainPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchUser('adamjubert')
-      .then(this.props.fetchRepos('adamjubert'))
+    const githubUsername = this.props.githubUsername;
+
+    this.props.fetchUser(githubUsername)
+      .then(this.props.fetchRepos(githubUsername))
       .then(this.setState({ fetching: false }));
   }
 

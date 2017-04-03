@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchRepos } from '../../actions/repo_actions';
+import { githubUsername } from '../../customize';
 import MainPage from './main_page';
 
 const mapStateToProps = ({ user }) => ({
-  user
+  user,
+  githubUsername
 });
 
 const mapDispatchToProps = dispatch => ({

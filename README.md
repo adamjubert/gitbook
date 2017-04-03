@@ -4,7 +4,7 @@
 
 Gitbook combines the familiarity of Facebook with your Github profile. You can view your profile information and create/edit/open/close issues.
 
-*Important* This web app utilizes the Github API and will make changes to your actual Github profile. Please be aware that once you create an issue on a repo, it cannot be deleted.
+**Disclaimer** This web app utilizes the Github API and will make changes to your actual Github profile. Please be aware that once you create an issue on a repo, it cannot be deleted.
 
 
 ### Installation Instructions

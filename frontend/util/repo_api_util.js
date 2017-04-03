@@ -1,4 +1,4 @@
-import { token } from './auth_token';
+import { token } from '../customize';
 
 export const fetchRepos = (username) => {
   const url =
